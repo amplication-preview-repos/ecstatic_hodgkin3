@@ -1,0 +1,47 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Driver {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Person {
+  bairro            String?
+  cep               String?
+  cnpjcpf           String?
+  codigoMunicipio   Int?
+  codigoPais        Int?
+  complemento       String?
+  createdAt         DateTime @default(now())
+  email             String?
+  id                String   @id @default(cuid())
+  inscricaoEstadual String?
+  logradouro        String?
+  nomeFantasia      String?
+  nomeMunicipio     String?
+  nomePais          String?
+  numero            String?
+  razaoSocialNome   String?
+  telefone          String?
+  updatedAt         DateTime @updatedAt
+}
+
+model Carrier {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
+
+model Vehicle {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
